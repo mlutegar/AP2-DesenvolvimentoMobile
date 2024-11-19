@@ -38,7 +38,7 @@ O **Feedback Labs** é um aplicativo Android desenvolvido para avaliar o atendim
 
 1. Clone o repositório do projeto:
    ```
-   git clone <link-do-repositorio>
+   git clone https://github.com/mlutegar/AP2-DesenvolvimentoMobile
    ```
 2. Abra o projeto no Android Studio.
 3. Execute o aplicativo em um emulador ou dispositivo físico com Android 6.0 ou superior.
