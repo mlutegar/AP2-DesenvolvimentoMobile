@@ -3,6 +3,8 @@ package com.ibmec.feedbacklabs
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -20,13 +22,26 @@ class Informacoes : AppCompatActivity() {
         }
 
         val botaoIniciar = findViewById<Button>(R.id.btn_continue)
+        val botaoVoltar = findViewById<Button>(R.id.btn_back_to_menu)
+        val nomeInput = findViewById<EditText>(R.id.et_name)
+        val matriculaInput = findViewById<EditText>(R.id.et_matricula)
+
         botaoIniciar.setOnClickListener {
-            // Criando a intent explícita para chamar a SecondActivity
-            val intent = Intent(this, Formulario::class.java)
-            startActivity(intent)
+            val nome = nomeInput.text.toString().trim()
+            val matricula = matriculaInput.text.toString().trim()
+
+            if (nome.isEmpty() || matricula.isEmpty()) {
+                // Exibe a mensagem de aviso
+                Toast.makeText(this, "Por favor, preencha todos os campos antes de continuar.", Toast.LENGTH_SHORT).show()
+            } else {
+                // Avança para a próxima tela
+                val intent = Intent(this, Formulario::class.java)
+                intent.putExtra("NOME_USUARIO", nome) // Envia o nome
+                intent.putExtra("MATRICULA_USUARIO", matricula) // Envia a matrícula
+                startActivity(intent)
+            }
         }
 
-        val botaoVoltar = findViewById<Button>(R.id.btn_back_to_menu)
         botaoVoltar.setOnClickListener {
             // Criando a intent explícita para chamar a SecondActivity
             val intent = Intent(this, MainActivity::class.java)

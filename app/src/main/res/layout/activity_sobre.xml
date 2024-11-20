@@ -8,66 +8,78 @@
     android:background="@color/primary"
     android:padding="16dp">
 
-    <!-- Foto do Desenvolvedor -->
+    <ImageView
+        android:id="@+id/logo2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/logo_minimo_negativo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.012" />
 
-    <!-- Texto de Introdução -->
+    <!-- Logo da Faculdade -->
+
+
     <ImageView
         android:id="@+id/developer_photo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="235dp"
+        android:layout_height="228dp"
         android:contentDescription="Foto do Desenvolvedor"
         android:src="@drawable/michel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintVertical_bias="0.091" />
 
-    <!-- Logo da Faculdade -->
     <TextView
         android:id="@+id/about_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="283dp"
+        android:layout_height="197dp"
         android:gravity="center"
         android:text="Este é um projeto acadêmico desenvolvido para o curso de Desenvolvimento Mobile. Estou cursando Engenharia da Computação no IBMEC, Barra da Tijuca, Rio de Janeiro. Atualmente estou no 5º período, e o professor orientador é o Thiago."
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.381" />
+        app:layout_constraintVertical_bias="0.605" />
 
-    <!-- Botão Voltar -->
-
-    <ImageView
-        android:id="@+id/college_logo"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/logo_minimo_negativo"
+    <TextView
+        android:id="@+id/github_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:text="Repositório no GitHub"
+        android:textColor="@color/secondary"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.558" />
+        app:layout_constraintTop_toBottomOf="@id/about_text"
+        app:layout_constraintVertical_bias="0.101" />
 
     <Button
         android:id="@+id/btn_back_to_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:backgroundTint="@color/secondary"
         android:text="Voltar"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_google_maps"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.681" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/btn_linkedin"
@@ -75,13 +87,12 @@
         android:layout_height="48dp"
         android:backgroundTint="@null"
         android:contentDescription="Abrir LinkedIn"
+        android:scaleType="fitCenter"
         android:src="@drawable/linkedin"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_back_to_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.081"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.869" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/btn_google_maps"
@@ -89,12 +100,12 @@
         android:layout_height="48dp"
         android:backgroundTint="@null"
         android:contentDescription="Abrir Localização IBMEC"
+        android:scaleType="fitCenter"
         android:src="@drawable/mapa"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.888"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/logo2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.869" />
+        app:layout_constraintVertical_bias="0.906" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
