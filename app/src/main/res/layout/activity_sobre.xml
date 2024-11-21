@@ -41,6 +41,7 @@
         android:id="@+id/about_text"
         android:layout_width="283dp"
         android:layout_height="197dp"
+        android:fontFamily="@font/krub"
         android:gravity="center"
         android:text="Este é um projeto acadêmico desenvolvido para o curso de Desenvolvimento Mobile. Estou cursando Engenharia da Computação no IBMEC, Barra da Tijuca, Rio de Janeiro. Atualmente estou no 5º período, e o professor orientador é o Thiago."
         android:textColor="@color/white"
@@ -51,15 +52,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.605" />
 
-    <TextView
-        android:id="@+id/github_link"
+
+    <Button
+        android:id="@+id/github_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:autoLink="web"
-        android:linksClickable="true"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/krub_bold"
         android:text="Repositório no GitHub"
-        android:textColor="@color/secondary"
+        android:textColor="@color/primary"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -69,13 +71,15 @@
         app:layout_constraintTop_toBottomOf="@id/about_text"
         app:layout_constraintVertical_bias="0.101" />
 
+
     <Button
         android:id="@+id/btn_back_to_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/secondary"
+        android:fontFamily="@font/krub_bold"
         android:text="Voltar"
-        android:textColor="@color/white"
+        android:textColor="@color/primary"
         app:layout_constraintBottom_toBottomOf="@+id/btn_google_maps"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -85,6 +89,7 @@
         android:id="@+id/btn_linkedin"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:background="@null"
         android:backgroundTint="@null"
         android:contentDescription="Abrir LinkedIn"
         android:scaleType="fitCenter"
@@ -98,6 +103,7 @@
         android:id="@+id/btn_google_maps"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:background="@null"
         android:backgroundTint="@null"
         android:contentDescription="Abrir Localização IBMEC"
         android:scaleType="fitCenter"

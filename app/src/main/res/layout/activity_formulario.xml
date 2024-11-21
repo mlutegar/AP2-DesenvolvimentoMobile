@@ -25,6 +25,7 @@
         android:id="@+id/question_counter"
         android:layout_width="125dp"
         android:layout_height="35dp"
+        android:fontFamily="@font/krub"
         android:text="Pergunta 1 de 5"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -50,6 +51,7 @@
         android:id="@+id/question_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/krub_bold"
         android:gravity="center"
         android:text="Qual foi sua experiência com o atendimento?"
         android:textColor="@color/white"
@@ -74,6 +76,7 @@
             android:id="@+id/answer_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/krub"
             android:text="Excelente"
             android:textColor="@color/white" />
 
@@ -81,6 +84,7 @@
             android:id="@+id/answer_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/krub"
             android:text="Bom"
             android:textColor="@color/white" />
 
@@ -88,6 +92,7 @@
             android:id="@+id/answer_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/krub"
             android:text="Regular"
             android:textColor="@color/white" />
 
@@ -95,21 +100,25 @@
             android:id="@+id/answer_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/krub"
             android:text="Ruim"
             android:textColor="@color/white" />
     </RadioGroup>
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_cancel"
         android:layout_width="56dp"
         android:layout_height="47dp"
-        android:backgroundTint="@color/secondary"
-        android:text="X"
-        android:textColor="@color/white"
+        android:background="@null"
+        android:backgroundTint="@null"
+        android:contentDescription="Cancelar"
+        android:scaleType="fitCenter"
+        android:src="@drawable/sair"
         app:layout_constraintBottom_toBottomOf="@+id/question_counter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent" />
+
 
     <Button
         android:id="@+id/btn_next"
@@ -117,8 +126,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/white"
+        android:fontFamily="@font/krub_bold"
         android:text="Próxima"
-        android:textColor="@color/black"
+        android:textColor="@color/primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

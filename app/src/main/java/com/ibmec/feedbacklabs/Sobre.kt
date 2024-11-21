@@ -27,6 +27,12 @@ class Sobre : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val githubButton = findViewById<Button>(R.id.github_button)
+        githubButton.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://github.com/mlutegar/AP2-DesenvolvimentoMobile"))
+            startActivity(intent)
+        }
+
         val linkedinButton = findViewById<ImageButton>(R.id.btn_linkedin)
         linkedinButton.setOnClickListener {
             val linkedinUrl = "https://www.linkedin.com/in/seu-perfil" // Substitua pela URL do seu LinkedIn

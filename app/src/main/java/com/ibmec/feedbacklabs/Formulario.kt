@@ -44,63 +44,82 @@ class Formulario : AppCompatActivity() {
             ),
             Triple(
                 "$nomeUsuario, você utilizou o serviço de:",
-                R.drawable.pergunta1, // Substituir por imagem correspondente
+                R.drawable.pergunta2, // Substituir por imagem correspondente
                 listOf("Manuseio de equipamentos no laboratório", "Empréstimo de equipamentos/notebooks", "Assistência em práticas")
             ),
 
             // Tela 2: Qualidade do Atendimento
             Triple(
                 "$nomeUsuario, como você avalia a cordialidade do técnico que o(a) atendeu?",
-                R.drawable.pergunta1, // Substituir por imagem correspondente
+                R.drawable.pergunta3, // Substituir por imagem correspondente
                 listOf("Excelente", "Bom", "Regular", "Ruim")
             ),
             Triple(
                 "$nomeUsuario, o técnico solucionou sua dúvida ou problema de forma satisfatória?",
-                R.drawable.pergunta1, // Substituir por imagem correspondente
+                R.drawable.pergunta4, // Substituir por imagem correspondente
                 listOf("Sim", "Parcialmente", "Não")
             ),
             Triple(
                 "$nomeUsuario, como você avalia o tempo de resposta/atendimento?",
-                R.drawable.pergunta1, // Substituir por imagem correspondente
+                R.drawable.pergunta5, // Substituir por imagem correspondente
                 listOf("Rápido", "Dentro do esperado", "Lento")
+            ),
+            Triple(
+                "$nomeUsuario, como você avalia o profissionalismo do técnico que o(a) atendeu?",
+                R.drawable.pergunta6, // Substituir por imagem correspondente
+                listOf("Excelente", "Bom", "Regular", "Ruim")
+            ),
+            Triple(
+                "$nomeUsuario, o técnico explicou as informações de maneira clara e compreensível?",
+                R.drawable.pergunta7, // Substituir por imagem correspondente
+                listOf("Sim", "Parcialmente", "Não")
+            ),
+            Triple(
+                "$nomeUsuario, como você avalia a eficiência do técnico no atendimento?",
+                R.drawable.pergunta8, // Substituir por imagem correspondente
+                listOf("Excelente", "Boa", "Regular", "Ruim")
+            ),
+            Triple(
+                "$nomeUsuario, como você avalia o estado dos equipamentos utilizados pelo técnico durante o atendimento?",
+                R.drawable.pergunta9, // Substituir por imagem correspondente
+                listOf("Excelente", "Bom", "Regular", "Ruim")
             ),
 
             // Tela 3: Feedback e Sugestões
             Triple(
                 "$nomeUsuario, você recomendaria os serviços dos técnicos do laboratório para outros alunos/professores?",
-                R.drawable.pergunta1, // Substituir por imagem correspondente
+                R.drawable.pergunta10, // Substituir por imagem correspondente
                 listOf("Sim", "Não")
             ),
             Triple(
-                "$nomeUsuario, o que você sugere para melhorar o atendimento?",
-                R.drawable.pergunta1, // Substituir por imagem correspondente
-                listOf("Preencha no campo de texto abaixo") // Representação para campo de texto aberto
-            ),
-            Triple(
                 "$nomeUsuario, você gostaria de receber atualizações sobre melhorias no laboratório?",
-                R.drawable.pergunta1, // Substituir por imagem correspondente
+                R.drawable.pergunta11, // Substituir por imagem correspondente
                 listOf("Sim", "Não")
             )
         )
 
         fun calcularResultado(respostas: List<Int>): Int {
-            val pesoRespostas = listOf( // Pesos atribuídos às respostas por pergunta
-                listOf(100, 80, 60), // Pergunta 1
-                listOf(100, 90, 80), // Pergunta 2
-                listOf(100, 80, 60, 40), // Pergunta 3
-                listOf(100, 70, 50), // Pergunta 4
-                listOf(100, 80, 60), // Pergunta 5
-                listOf(100, 50), // Pergunta 6
-                listOf(100), // Pergunta 7 (campo aberto pode ser tratado de forma personalizada)
-                listOf(100, 50) // Pergunta 8
+            val pesoRespostas = listOf( // Pesos apenas para perguntas de qualidade do atendimento
+                null, // Pergunta 1: Sem peso (contexto)
+                null, // Pergunta 2: Sem peso (contexto)
+                listOf(100, 80, 60, 40), // Pergunta 3: Cordialidade
+                listOf(100, 70, 50), // Pergunta 4: Solução de dúvidas
+                listOf(100, 80, 60), // Pergunta 5: Tempo de atendimento
+                listOf(100, 80, 60, 40), // Pergunta 6: Profissionalismo
+                listOf(100, 70, 50), // Pergunta 7: Clareza
+                listOf(100, 80, 60, 40), // Pergunta 8: Eficiência
+                listOf(100, 80, 60, 40), // Pergunta 9: Estado dos equipamentos
+                null, // Pergunta 10: Sem peso (recomendação)
+                null  // Pergunta 11: Sem peso (atualizações)
             )
 
             var totalPeso = 0
             var totalPontos = 0
 
             respostas.forEachIndexed { index, respostaIndex ->
-                if (respostaIndex >= 0 && index < pesoRespostas.size) {
-                    totalPontos += pesoRespostas[index][respostaIndex]
+                if (respostaIndex >= 0 && pesoRespostas[index] != null) { // Aplica peso apenas para perguntas com pesos
+                    val pesos = pesoRespostas[index]!!
+                    totalPontos += pesos[respostaIndex]
                     totalPeso += 100
                 }
             }

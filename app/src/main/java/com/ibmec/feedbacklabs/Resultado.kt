@@ -36,13 +36,13 @@ class Resultado : AppCompatActivity() {
         score.text = userScore.toString()
 
         if (userScore > 80) {
-            resultImage.setImageResource(R.drawable.pergunta1) // Imagem para alta satisfação
+            resultImage.setImageResource(R.drawable.resultado1) // Imagem para alta satisfação
             resultDescription.text = "Você está muito satisfeito com o laboratório!"
         } else if (userScore > 50) {
-            resultImage.setImageResource(R.drawable.pergunta1) // Imagem para média satisfação
+            resultImage.setImageResource(R.drawable.resultado2) // Imagem para média satisfação
             resultDescription.text = "Você está razoavelmente satisfeito com o laboratório."
         } else {
-            resultImage.setImageResource(R.drawable.pergunta1) // Imagem para baixa satisfação
+            resultImage.setImageResource(R.drawable.resultado3) // Imagem para baixa satisfação
             resultDescription.text = "Você não está satisfeito com o laboratório."
         }
 
