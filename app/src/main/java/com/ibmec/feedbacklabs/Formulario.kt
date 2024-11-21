@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -182,10 +183,11 @@ class Formulario : AppCompatActivity() {
         }
 
 
-        findViewById<Button>(R.id.btn_cancel).setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java) // Substitua Resultado pelo nome da sua classe de resultado
+        findViewById<ImageButton>(R.id.btn_cancel).setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            finish() // Finaliza a atividade atual para evitar voltar ao formulário
+            finish()
         }
+
     }
 }
