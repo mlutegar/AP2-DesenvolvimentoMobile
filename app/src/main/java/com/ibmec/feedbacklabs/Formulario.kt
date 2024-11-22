@@ -9,12 +9,15 @@ import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class Formulario : AppCompatActivity() {
+    private val respostasSelecionadas = mutableListOf<Int>() // Armazena todas as respostas selecionadas
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -152,8 +155,6 @@ class Formulario : AppCompatActivity() {
         updateQuestion()
 
         findViewById<Button>(R.id.btn_next).setOnClickListener {
-            val respostasSelecionadas = mutableListOf<Int>()
-
             val selectedOption = findViewById<RadioGroup>(R.id.answers_group).checkedRadioButtonId
             val selectedIndex = when (selectedOption) {
                 R.id.answer_1 -> 0
@@ -164,24 +165,27 @@ class Formulario : AppCompatActivity() {
             }
 
             if (selectedIndex != -1) {
-                respostasSelecionadas.add(selectedIndex) // Salva a resposta selecionada
-            }
+                // Salva a resposta selecionada
+                respostasSelecionadas.add(selectedIndex)
 
-            if (currentQuestionIndex < questions.size - 1) {
-                currentQuestionIndex++
-                updateQuestion()
+                if (currentQuestionIndex < questions.size - 1) {
+                    currentQuestionIndex++
+                    updateQuestion()
+                } else {
+                    // Navega para a tela de Resultado
+                    val resultado = calcularResultado(respostasSelecionadas)
+                    val intent = Intent(this, Resultado::class.java) // Substitua Resultado pelo nome da sua classe de resultado
+                    intent.putExtra("NOME_USUARIO", nomeUsuario)
+                    intent.putExtra("MATRICULA_USUARIO", matriculaUsuario)
+                    intent.putExtra("RESULTADO", resultado)
+                    startActivity(intent)
+                    finish() // Finaliza a atividade atual para evitar voltar ao formulário
+                }
             } else {
-                // Navega para a tela de Resultado
-                val resultado = calcularResultado(respostasSelecionadas)
-                val intent = Intent(this, Resultado::class.java) // Substitua Resultado pelo nome da sua classe de resultado
-                intent.putExtra("NOME_USUARIO", nomeUsuario)
-                intent.putExtra("MATRICULA_USUARIO", matriculaUsuario)
-                intent.putExtra("RESULTADO", resultado)
-                startActivity(intent)
-                finish() // Finaliza a atividade atual para evitar voltar ao formulário
+                // Exibe mensagem de alerta se nenhuma opção foi selecionada
+                Toast.makeText(this, "Por favor, selecione uma opção para continuar.", Toast.LENGTH_SHORT).show()
             }
         }
-
 
         findViewById<ImageButton>(R.id.btn_cancel).setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
